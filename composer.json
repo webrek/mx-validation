@@ -1,0 +1,83 @@
+{
+    "name": "webrek/mx-validation",
+    "description": "Validate and generate Mexican identifiers — RFC, CURP, CLABE, NSS and código postal — with real check-digit verification. Framework-agnostic core with an optional Laravel bridge (rules, casts, Faker).",
+    "keywords": [
+        "php",
+        "mexico",
+        "validation",
+        "rfc",
+        "curp",
+        "clabe",
+        "nss",
+        "sat",
+        "codigo-postal",
+        "laravel"
+    ],
+    "homepage": "https://github.com/webrek/mx-validation",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Victor Hernandez",
+            "email": "victor@arturohernandez.com.mx"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/webrek/mx-validation/issues",
+        "source": "https://github.com/webrek/mx-validation",
+        "security": "https://github.com/webrek/mx-validation/security/advisories/new"
+    },
+    "require": {
+        "php": "^8.2",
+        "nesbot/carbon": "^2.72 || ^3.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "illuminate/contracts": "^12.0 || ^13.0",
+        "illuminate/database": "^12.0 || ^13.0",
+        "illuminate/support": "^12.0 || ^13.0",
+        "illuminate/validation": "^12.0 || ^13.0",
+        "infection/infection": "^0.29",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^10.0 || ^11.0",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.0 || ^12.0"
+    },
+    "suggest": {
+        "illuminate/contracts": "To use the Laravel bridge (validation rules, Eloquent casts, service provider).",
+        "fakerphp/faker": "To generate sample identifiers with the bundled Faker provider."
+    },
+    "autoload": {
+        "psr-4": {
+            "Webrek\\MxValidation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webrek\\MxValidation\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webrek\\MxValidation\\Laravel\\MxValidationServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "stan": "phpstan analyse --memory-limit=512M",
+        "pint": "pint",
+        "pint:check": "pint --test"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

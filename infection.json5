@@ -1,0 +1,23 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": ["src"],
+        "excludes": [
+            "Laravel/MxValidationServiceProvider.php",
+            "Faker/MxProvider.php"
+        ]
+    },
+    "mutators": {
+        "@default": true,
+        // The RFC/CURP check digits walk multibyte alphabets, so many mb_*
+        // calls have equivalent ASCII mutants (mb_strtoupper -> strtoupper,
+        // mb_str_split -> str_split). They cap the achievable MSI; the actual
+        // score runs ~82%.
+        "ProtectedVisibility": false
+    },
+    "minMsi": 75,
+    "minCoveredMsi": 75,
+    "logs": {
+        "text": ".infection/infection.log"
+    }
+}
