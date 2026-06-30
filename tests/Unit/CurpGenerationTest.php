@@ -13,7 +13,7 @@ class CurpGenerationTest extends TestCase
 
         $this->assertSame('PELJ900515HJCRPN03', (string) $curp);
         $this->assertSame('H', $curp->sex());
-        $this->assertSame('DF', $curp->stateCode());
+        $this->assertSame('JC', $curp->stateCode());
         $this->assertSame('1990-05-15', $curp->birthDate()->format('Y-m-d'));
     }
 
